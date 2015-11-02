@@ -16,13 +16,20 @@ cabal-version:       >=1.10
 library
   hs-source-dirs:      src
   exposed-modules:     Lib
+                     , Zork
+  ghc-options:         -Wall
   build-depends:       base >= 4.7 && < 5
+                     , base-prelude
+                     , process
+                     , MissingH
   default-language:    Haskell2010
+  default-extensions:  NoImplicitPrelude
+                     , RecordWildCards
 
 executable zork-server
   hs-source-dirs:      app
   main-is:             Main.hs
-  ghc-options:         -threaded -rtsopts -with-rtsopts=-N
+  ghc-options:         -Wall -threaded -rtsopts -with-rtsopts=-N
   build-depends:       base
                      , zork-server
   default-language:    Haskell2010
