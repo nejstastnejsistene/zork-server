@@ -1,0 +1,24 @@
+<pre><code></code></pre>
+<form>
+  <input type="text" id="input" autofocus>
+  <input type="submit" style="display: none">
+</form>
+<script>
+var form = document.getElementsByTagName("form")[0];
+var code = document.getElementsByTagName("code")[0];
+var ws = new WebSocket('ws://localhost:3030/userid');
+ws.addEventListener("open", function(event) {
+    console.log('open', event);
+});
+ws.addEventListener("close", function(event) {
+    console.log('close', event);
+});
+ws.addEventListener("message", function(event) {
+    code.innerHTML = event.data;
+});
+form.addEventListener("submit", function(event) {
+    ws.send(input.value);
+    input.value = '';
+    event.preventDefault();
+});
+</script>
