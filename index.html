@@ -6,7 +6,9 @@
 <script>
 var form = document.getElementsByTagName("form")[0];
 var code = document.getElementsByTagName("code")[0];
-var ws = new WebSocket('ws://localhost:3030/userid');
+var url = 'ws://localhost:3030/userid';
+//var url = 'wss://gruesome-corpse-4599.herokuapp.com';
+var ws = new WebSocket(url);
 ws.addEventListener("open", function(event) {
     console.log('open', event);
 });
